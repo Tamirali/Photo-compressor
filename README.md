@@ -1,2 +1,2 @@
 # Photo-compressor
-Good job 
+and link generator
