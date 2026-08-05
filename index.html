@@ -1,0 +1,510 @@
+<!DOCTYPE html> 
+<html lang="hi"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Tamir Image Compressor Link</title> 
+    <!-- FontAwesome for Icons --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+    <style> 
+        :root { 
+            --primary-color: #00769b; 
+            --secondary-color: #00bcd4; 
+            --dark-bg: #121212; 
+            --card-bg: #1e1e1e; 
+            --text-light: #ffffff; 
+            --text-muted: #aaaaaa; 
+            --accent-color: #ff9800; 
+            --success-color: #2e7d32; 
+            --whatsapp-color: #25d366;
+        } 
+ 
+        body { 
+            margin: 0; 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            background-color: var(--dark-bg); 
+            color: var(--text-light); 
+            padding: 15px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        } 
+ 
+        .header { 
+            text-align: center; 
+            margin-bottom: 20px; 
+            width: 100%; 
+            max-width: 600px; 
+            background: linear-gradient(135deg, #012, #004); 
+            padding: 15px; 
+            border-radius: 10px; 
+            border-bottom: 3px solid var(--primary-color); 
+            box-sizing: border-box;
+        } 
+ 
+        .header h1 { 
+            margin: 0; 
+            font-size: 1.6rem; 
+            color: var(--secondary-color); 
+        } 
+ 
+        .header p { 
+            margin: 5px 0 0 0; 
+            color: var(--accent-color); 
+            font-size: 0.9rem; 
+            font-weight: bold; 
+        } 
+
+        .whatsapp-banner-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--whatsapp-color);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+
+        .whatsapp-banner-btn:hover {
+            transform: scale(1.03);
+        }
+ 
+        .section-card { 
+            background-color: var(--card-bg); 
+            border-radius: 12px; 
+            padding: 20px; 
+            width: 100%; 
+            max-width: 600px; 
+            box-sizing: border-box; 
+            margin-bottom: 20px; 
+            border: 1px solid #333; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
+        } 
+ 
+        .section-title { 
+            margin-top: 0; 
+            font-size: 1.2rem; 
+            color: var(--secondary-color); 
+            border-bottom: 1px solid #444; 
+            padding-bottom: 8px; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+        } 
+ 
+        /* Compressor Styles */ 
+        .upload-box { 
+            border: 2px dashed var(--primary-color); 
+            padding: 20px; 
+            text-align: center; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            background: #1a1a1a; 
+            margin-bottom: 15px; 
+        } 
+ 
+        .upload-box i { 
+            font-size: 2rem; 
+            color: var(--secondary-color); 
+            margin-bottom: 10px; 
+        } 
+ 
+        /* Site List Styles */ 
+        .site-item { 
+            background: #252525; 
+            padding: 15px; 
+            border-radius: 8px; 
+            margin-bottom: 15px; 
+            border-left: 4px solid var(--accent-color); 
+        } 
+ 
+        .site-name { 
+            font-size: 1.1rem; 
+            font-weight: bold; 
+            color: #fff; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        } 
+ 
+        .site-link-btn { 
+            background: var(--primary-color); 
+            color: white; 
+            border: none; 
+            padding: 8px 12px; 
+            border-radius: 4px; 
+            font-size: 0.85rem; 
+            font-weight: bold; 
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        } 
+
+        .site-link-btn:hover {
+            background: var(--secondary-color);
+        }
+ 
+        .steps-box { 
+            background: #151515; 
+            padding: 10px; 
+            border-radius: 6px; 
+            margin-top: 10px; 
+            font-size: 0.9rem; 
+            color: var(--text-muted); 
+            line-height: 1.5; 
+        } 
+ 
+        /* Input Styles */ 
+        .form-group { 
+            margin-bottom: 12px; 
+        } 
+ 
+        .form-group label { 
+            display: block; 
+            margin-bottom: 5px; 
+            font-size: 0.9rem; 
+            color: var(--text-muted); 
+        } 
+ 
+        input, textarea { 
+            width: 100%; 
+            padding: 10px; 
+            box-sizing: border-box; 
+            background: #2b2b2b; 
+            border: 1px solid #444; 
+            color: white; 
+            border-radius: 6px; 
+        } 
+ 
+        .btn { 
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); 
+            color: white; 
+            border: none; 
+            padding: 10px 15px; 
+            border-radius: 6px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            width: 100%; 
+        } 
+ 
+        /* Saved Links Styles */ 
+        .saved-item { 
+            background: #1a1a1a; 
+            padding: 12px; 
+            border-radius: 6px; 
+            margin-bottom: 10px; 
+            border: 1px solid #333; 
+        } 
+ 
+        .saved-desc { 
+            font-weight: bold; 
+            color: var(--accent-color); 
+            margin-bottom: 5px; 
+        } 
+ 
+        .saved-link-row { 
+            display: flex; 
+            gap: 10px; 
+            align-items: center; 
+        } 
+ 
+        .saved-link-text { 
+            background: #252525; 
+            padding: 8px; 
+            border-radius: 4px; 
+            font-size: 0.85rem; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            white-space: nowrap; 
+            flex: 1; 
+            color: #4caf50; 
+        } 
+ 
+        .copy-icon-btn { 
+            background: #444; 
+            color: white; 
+            border: none; 
+            padding: 8px 12px; 
+            border-radius: 4px; 
+            cursor: pointer; 
+        } 
+ 
+        .copy-icon-btn:hover { 
+            background: var(--primary-color); 
+        } 
+ 
+        .toast { 
+            position: fixed; 
+            bottom: 20px; 
+            background: var(--success-color); 
+            color: white; 
+            padding: 10px 20px; 
+            border-radius: 30px; 
+            display: none; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5); 
+            z-index: 1000; 
+        } 
+ 
+        .final-step-box { 
+            background: #1e3d2f; 
+            border: 1px solid #2e7d32; 
+            padding: 12px; 
+            border-radius: 8px; 
+            margin-top: 15px; 
+            color: #e8f5e9; 
+            font-size: 0.9rem; 
+            line-height: 1.4; 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+    <!-- HEADER WITH WHATSAPP LINK --> 
+    <div class="header"> 
+        <h1>Tamir Image Compressor Link</h1> 
+        <p>the victory of wisdom - फोटो कंप्रेस व लिंक टूलकिट</p> 
+        <a href="https://wa.me/918797221991" target="_blank" class="whatsapp-banner-btn">
+            <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> WhatsApp: +91 8797221991
+        </a>
+    </div> 
+ 
+    <!-- STEP 1: PHOTO COMPRESSOR --> 
+    <div class="section-card"> 
+        <div class="section-title"> 
+            <i class="fas fa-compress-alt"></i> 1. सबसे पहले यहाँ फोटो छोटी (Compress) करें 
+        </div> 
+        <div class="upload-box" onclick="document.getElementById('fileInput').click()"> 
+            <i class="fas fa-camera"></i> 
+            <p style="margin:0;">मोबाइल से फोटो चुनें या फोटो खींचें</p> 
+            <input type="file" id="fileInput" accept="image/*" style="display:none;" onchange="compressPhoto(event)"> 
+        </div> 
+ 
+        <div id="compressionResult" style="display:none; text-align: center; background: #151515; padding: 10px; border-radius: 8px;"> 
+            <img id="previewImg" style="max-width: 100px; border-radius: 6px; border: 1px solid #444;"> 
+            <p style="color: #4caf50; font-weight: bold; margin: 5px 0;" id="sizeInfo">साइज कम हो गया!</p> 
+            <a id="downloadBtn" class="btn" style="display: inline-block; text-decoration: none; width: auto; padding: 6px 15px; font-size: 0.9rem;" download="compressed_photo.jpg">📥 कंप्रेस फोटो मोबाइल में सेव करें</a> 
+        </div> 
+    </div> 
+ 
+    <!-- STEP 2: LINK PROVIDER PLATFORMS --> 
+    <div class="section-card"> 
+        <div class="section-title"> 
+            <i class="fas fa-link"></i> 2. अब यहाँ से फोटो का लिंक निकालें 
+        </div> 
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0;">(नीचे दिए गए बटन दबाते ही आपकी कंप्रेस फोटो डायरेक्ट डाउनलोड होकर साइट खुल जाएगी)</p> 
+ 
+        <!-- SITE 1: ImgBB --> 
+        <div class="site-item"> 
+            <div class="site-name"> 
+                <span>1. ImgBB वेबसाइट</span> 
+                <button onclick="openWebsiteWithPhoto('https://imgbb.com/')" class="site-link-btn">
+                    साइट पर जाएं <i class="fas fa-external-link-alt"></i>
+                </button> 
+            </div> 
+            <div class="steps-box"> 
+                <strong>कैसे करना है:</strong><br> 
+                1. बटन दबाते ही आपकी कंप्रेस फोटो डाउनलोड हो जाएगी और ImgBB खुल जाएगी।<br> 
+                2. 'Start Uploading' बटन दबाकर <strong>Downloads</strong> फ़ोल्डर से तुरंत वो फोटो चुनें।<br> 
+                3. Direct Link कॉपी करें और नीचे दिए हुए फ़ाइल में सेव कर लें। 
+            </div> 
+        </div> 
+ 
+        <!-- SITE 2: PostImages --> 
+        <div class="site-item"> 
+            <div class="site-name"> 
+                <span>2. PostImages वेबसाइट</span> 
+                <button onclick="openWebsiteWithPhoto('https://postimages.org/')" class="site-link-btn">
+                    साइट पर जाएं <i class="fas fa-external-link-alt"></i>
+                </button> 
+            </div> 
+            <div class="steps-box"> 
+                <strong>कैसे करना है:</strong><br> 
+                1. बटन दबाते ही फोटो डाउनलोड होकर वेबसाइट खुल जाएगी।<br> 
+                2. "Choose images" दबाकर <strong>Downloads</strong> फ़ोल्डर से फोटो चुनें।<br> 
+                3. "Direct Link" को कॉपी करें और नीचे जाकर अपने फ़ाइल में सेव कर लें। 
+            </div> 
+        </div> 
+    </div> 
+ 
+    <!-- STEP 3: LINK DIARY --> 
+    <div class="section-card"> 
+        <div class="section-title"> 
+            <i class="fas fa-book"></i> 3. लिंक सेविंग डायरी (यहाँ कॉपी करके रखें) 
+        </div> 
+        <div class="form-group"> 
+            <label>फोटो का विवरण (जैसे: लाल साड़ी, काला जूता)</label> 
+            <input type="text" id="linkDesc" placeholder="सामान का नाम लिखें..."> 
+        </div> 
+        <div class="form-group"> 
+            <label>वहाँ से कॉपी किया हुआ लिंक यहाँ पेस्ट करें</label> 
+            <input type="text" id="linkUrl" placeholder="https://..."> 
+        </div> 
+        <button class="btn" onclick="saveLink()"><i class="fas fa-plus"></i> डायरी में सुरक्षित करें</button> 
+ 
+        <h3 style="font-size: 1rem; color: var(--text-muted); margin-top: 20px; margin-bottom: 10px;">आपकी सुरक्षित कड़ियां (Saved Links):</h3> 
+        <div id="savedLinksContainer"> 
+            <!-- Saved links will appear here --> 
+        </div> 
+ 
+        <div class="final-step-box"> 
+            <i class="fas fa-info-circle" style="color: var(--secondary-color);"></i>  
+            <strong>अगला कदम:</strong> यहाँ डायरी से लिंक को <strong>कॉपी करके</strong> अपने प्रोडक्ट के <strong>URL बॉक्स में पेस्ट कर दें</strong> और अपना पूरा डिटेल्स भरें और अपलोड कर दें। 
+        </div> 
+    </div> 
+
+    <!-- TOAST NOTIFICATION --> 
+    <div id="toast" class="toast">लिंक कॉपी हो गया!</div> 
+ 
+    <script> 
+        let globalCompressedBlob = null;
+        let compressedFileName = "compressed_photo.jpg";
+
+        function compressPhoto(event) { 
+            const file = event.target.files[0]; 
+            if (!file) return; 
+
+            compressedFileName = "compressed_" + file.name;
+ 
+            const reader = new FileReader(); 
+            reader.readAsDataURL(file); 
+            reader.onload = function(e) { 
+                const img = new Image(); 
+                img.src = e.target.result; 
+                img.onload = function() { 
+                    const canvas = document.createElement('canvas'); 
+                    let width = img.width; 
+                    let height = img.height; 
+                    const maxWidth = 800; 
+                    const maxHeight = 800; 
+ 
+                    if (width > height) { 
+                        if (width > maxWidth) { height = Math.round((height * maxWidth) / width); width = maxWidth; } 
+                    } else { 
+                        if (height > maxHeight) { width = Math.round((width * maxHeight) / height); height = maxHeight; } 
+                    } 
+ 
+                    canvas.width = width; 
+                    canvas.height = height; 
+                    const ctx = canvas.getContext('2d'); 
+                    ctx.drawImage(img, 0, 0, width, height); 
+ 
+                    const compressedBase64 = canvas.toDataURL('image/jpeg', 0.6); 
+                     
+                    document.getElementById('previewImg').src = compressedBase64; 
+                    document.getElementById('downloadBtn').href = compressedBase64; 
+                    document.getElementById('downloadBtn').download = compressedFileName;
+                    document.getElementById('compressionResult').style.display = 'block'; 
+
+                    fetch(compressedBase64)
+                        .then(res => res.blob())
+                        .then(blob => {
+                            globalCompressedBlob = blob;
+                        });
+
+                    showToastNotification("📸 फोटो सफ़लतापूर्वक कंप्रेस हो गई!"); 
+                } 
+            } 
+        } 
+
+        function openWebsiteWithPhoto(siteUrl) {
+            if (!globalCompressedBlob) {
+                alert("कृपया पहले ऊपर से फोटो चुनें और कंप्रेस करें!");
+                return;
+            }
+
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(globalCompressedBlob);
+            link.download = compressedFileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            showToastNotification("📥 कंप्रेस फोटो ऑटो-डाउनलोड हो रही है... साइट खुल रही है!");
+
+            setTimeout(() => {
+                window.open(siteUrl, '_blank');
+            }, 800);
+        }
+ 
+        let myLinks = JSON.parse(localStorage.getItem('tamir_compressor_links')) || []; 
+ 
+        function saveLink() { 
+            const desc = document.getElementById('linkDesc').value.trim(); 
+            const url = document.getElementById('linkUrl').value.trim(); 
+ 
+            if (!desc || !url) { 
+                alert("कृपया विवरण और लिंक दोनों भरें!"); 
+                return; 
+            } 
+ 
+            myLinks.push({ desc, url }); 
+            localStorage.setItem('tamir_compressor_links', JSON.stringify(myLinks)); 
+             
+            document.getElementById('linkDesc').value = ''; 
+            document.getElementById('linkUrl').value = ''; 
+             
+            renderLinks(); 
+            showToastNotification("✅ लिंक डायरी में सेव हो गया!"); 
+        } 
+ 
+        function renderLinks() { 
+            const container = document.getElementById('savedLinksContainer'); 
+            container.innerHTML = ''; 
+ 
+            if (myLinks.length === 0) { 
+                container.innerHTML = '<p style="font-size:0.85rem; color:#666; text-align:center;">अभी कोई लिंक सुरक्षित नहीं है।</p>'; 
+                return; 
+            } 
+ 
+            myLinks.forEach((item, index) => { 
+                const div = document.createElement('div'); 
+                div.className = 'saved-item'; 
+                div.innerHTML = ` 
+                    <div class="saved-desc">${item.desc}</div> 
+                    <div class="saved-link-row"> 
+                        <div class="saved-link-text" id="linkText-${index}">${item.url}</div> 
+                        <button class="copy-icon-btn" onclick="copyToClipboard('${item.url}')" title="कॉपी करें"> 
+                            <i class="fas fa-copy"></i> 
+                        </button> 
+                        <button class="copy-icon-btn" style="background:#d32f2f;" onclick="deleteLink(${index})" title="हटाएं"> 
+                            <i class="fas fa-trash"></i> 
+                        </button> 
+                    </div> 
+                `; 
+                container.appendChild(div); 
+            }); 
+        } 
+ 
+        function copyToClipboard(text) { 
+            navigator.clipboard.writeText(text).then(() => { 
+                showToastNotification("📋 लिंक कॉपी हो गया!"); 
+            }); 
+        } 
+ 
+        function deleteLink(index) { 
+            if(confirm("क्या आप इस लिंक को हटाना चाहते हैं?")) { 
+                myLinks.splice(index, 1); 
+                localStorage.setItem('tamir_compressor_links', JSON.stringify(myLinks)); 
+                renderLinks(); 
+            } 
+        } 
+ 
+        function showToastNotification(msg) { 
+            const toast = document.getElementById('toast'); 
+            toast.innerText = msg; 
+            toast.style.display = 'block'; 
+            setTimeout(() => { toast.style.display = 'none'; }, 3500); 
+        } 
+ 
+        renderLinks(); 
+    </script> 
+</body> 
+</html>
